@@ -36,7 +36,7 @@ class UserRegistrationForm(UserCreationForm):
                 postal_code = postal_code , 
                 country = country,
                 street_address = street_address,
-
+                
             )
             UserBankAccounts.objects.create(
                 user = our_user , 
