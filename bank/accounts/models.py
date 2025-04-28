@@ -1,6 +1,6 @@
 from django.db import models 
 from django.contrib.auth.models import User
-from constants import ACCOUNT_TYPE , GENDER 
+from .constants import GENDER , ACCOUNT_TYPE
 
 class UserBankAccounts(models.Model):
     user = models.OneToOneField(User,related_name="account",on_delete=models.CASCADE)
@@ -17,3 +17,7 @@ class UserAddress(models.Model):
     city = models.CharField(max_length=100)
     postal_code = models.IntegerField()
     country = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return str(self.user)
+    
