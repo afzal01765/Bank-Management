@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import UserAddress ,UserBankAccounts
 
 class UserRegistrationForm(UserCreationForm):
+    
     birth_date = forms.DateField(widget=forms.DateInput(attrs={"type":'date'}))
     gender = forms.CharField(max_length=10,choices  = GENDER)
     street_address =  forms.CharField(max_length=100)
@@ -22,7 +23,6 @@ class UserRegistrationForm(UserCreationForm):
         our_user = super().save(commit=False)
         if commit == True:
             our_user.save()  # user model e data save korlam
-
             account_type = self.cleaned_data.get("accout_type")
             gender  = self.cleaned_data.get("gender")
             postal_code  = self.cleaned_data.get("postal_code")
@@ -30,6 +30,7 @@ class UserRegistrationForm(UserCreationForm):
             country = self.cleaned_data.get("country")
             birth_date =self.cleaned_data.get("birth_date")
             street_address = self.cleaned_data('street_address')
+
             UserAddress.objects.create(
                 user = our_user,
                 city = city,
