@@ -1,13 +1,13 @@
 
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .constants import ACCOUNT_TYPE, GENDER_TYPE
+from .constants import ACCOUNT_TYPE, GENDER
 from django.contrib.auth.models import User
 from .models import UserBankAccount, UserAddress
 
 class UserRegistrationForm(UserCreationForm):
     birth_date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
-    gender = forms.ChoiceField(choices=GENDER_TYPE)
+    gender = forms.ChoiceField(choices=GENDER)
     account_type = forms.ChoiceField(choices=ACCOUNT_TYPE)
     street_address = forms.CharField(max_length=100)
     city = forms.CharField(max_length= 100)
@@ -62,12 +62,13 @@ class UserRegistrationForm(UserCreationForm):
                 ) 
             })
 
+            
 
 # profile ki ki jinis update korte parbe amader user
 
 class UserUpdateForm(forms.ModelForm):
     birth_date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
-    gender = forms.ChoiceField(choices=GENDER_TYPE)
+    gender = forms.ChoiceField(choices=GENDER)
     account_type = forms.ChoiceField(choices=ACCOUNT_TYPE)
     street_address = forms.CharField(max_length=100)
     city = forms.CharField(max_length= 100)

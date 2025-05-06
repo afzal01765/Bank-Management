@@ -1,4 +1,4 @@
 from django.contrib import admin 
-from .models import UserBankAccounts ,UserAddress 
+from .models import UserBankAccount ,UserAddress 
 admin.site.register(UserAddress)
-admin.site.register(UserBankAccounts)
+admin.site.register(UserBankAccount)
