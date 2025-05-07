@@ -6,10 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css">
   </head>
+  <body class ="bg-indigo-600">
 
-  <body>
+    {% include 'navbar.html' %}
 
-    {% block content %}
+     {% block content %}
 
      {% if form.non_field_errors %} 
 
